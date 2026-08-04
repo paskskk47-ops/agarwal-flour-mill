@@ -173,7 +173,15 @@
 
   <!-- Hero Section -->
   <section class="hero">
-    <div class="container hero-grid">
+    <!-- Hero Background Slider -->
+    <div class="hero-slider">
+      <div class="hero-slide active" style="background-image: linear-gradient(rgba(44, 19, 4, 0.65), rgba(44, 19, 4, 0.8)), url('hero-banner.png');"></div>
+      <div class="hero-slide" style="background-image: linear-gradient(rgba(44, 19, 4, 0.65), rgba(44, 19, 4, 0.8)), url('cover pic.png');"></div>
+      <div class="hero-slide" style="background-image: linear-gradient(rgba(44, 19, 4, 0.65), rgba(44, 19, 4, 0.8)), url('wheat.png');"></div>
+      <div class="hero-slide" style="background-image: linear-gradient(rgba(44, 19, 4, 0.65), rgba(44, 19, 4, 0.8)), url('multigrain.png');"></div>
+    </div>
+
+    <div class="container hero-grid" style="position: relative; z-index: 2;">
       <div class="hero-content">
         <h1>Fresh Grinding of <span>Grains & Spices</span> in Jaipur</h1>
         <p class="hero-subtitle-hn">अपने अनाज और मसालों का ताज़ा, शुद्ध और बारीक आटा पिसवाएं।</p>
@@ -661,7 +669,7 @@
         <div class="map-container">
           <!-- Google Maps Iframe matching Jaipur Mansarovar location -->
           <iframe 
-            src="https://maps.google.com/maps?q=Agarwal%20Best%20Flour%20Mill,%20Shop%20no.%2016,%20zone%2035,%20Mansarovar,%20Jaipur,%20Rajasthan%20302020&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+            src="https://maps.google.com/maps?q=26.8663063,75.7614417+(Agarwal+Best+Flour+Mill)&z=17&ie=UTF8&iwloc=&output=embed" 
             allowfullscreen="" 
             loading="lazy" 
             referrerpolicy="no-referrer-when-downgrade">
@@ -677,7 +685,7 @@
       <div class="footer-grid">
         <div class="footer-about">
           <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 15px;">
-            <img src="logo.png" alt="Agarawal Flour Mill Logo" style="height: 48px; width: auto; object-fit: contain; filter: brightness(0) invert(1);">
+            <img src="logo.png" alt="Agarawal Flour Mill Logo" style="height: 48px; width: 48px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent-gold);">
             <h3 style="margin-bottom: 0; color: #fff;">Agarawal Flour Mill</h3>
           </div>
           <p>Providing pure, hygienic, and personalized grain and spice grinding services at Shop no. 16, Zone 35, Rajat Path, Mansarovar, Jaipur since years.</p>
@@ -830,6 +838,17 @@
         }, 1000); // Keep loader visible for 1s for best visual impact
       }
     });
+
+    // Hero Background Slider logic
+    const heroSlides = document.querySelectorAll('.hero-slide');
+    if (heroSlides.length > 0) {
+      let currentSlide = 0;
+      setInterval(() => {
+        heroSlides[currentSlide].classList.remove('active');
+        currentSlide = (currentSlide + 1) % heroSlides.length;
+        heroSlides[currentSlide].classList.add('active');
+      }, 4000);
+    }
   </script>
   <!-- Floating WhatsApp Widget -->
   <a href="https://wa.me/919636220880?text=Hello%20Agarawal%20Flour%20Mill%2C%20I%20want%20to%20inquire%20about%20your%20grinding%20services." 

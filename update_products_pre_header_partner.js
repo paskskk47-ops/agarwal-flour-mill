@@ -33,7 +33,7 @@ const oldFooterAbout = `<div class="footer-about">
 
 const newFooterAbout = `<div class="footer-about">
           <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 15px;">
-            <img src="logo.png" alt="Agarawal Flour Mill Logo" style="height: 48px; width: auto; object-fit: contain; filter: brightness(0) invert(1);">
+            <img src="logo.png" alt="Agarawal Flour Mill Logo" style="height: 48px; width: 48px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent-gold);">
             <h3 style="margin-bottom: 0; color: #fff;">Agarawal Flour Mill</h3>
           </div>
           <p>Providing pure, hygienic, and personalized grain and spice grinding services at Shop no. 16, Zone 35, Rajat Path, Mansarovar, Jaipur since years.</p>
@@ -158,6 +158,20 @@ productFiles.forEach(file => {
   if (!content.includes('whatsapp-float')) {
     content = content.replace('</body>', `${whatsappFloatHTML}\n\n</body>`);
     console.log(`Injected floating WhatsApp button into ${file}`);
+  }
+  
+  // Replace GitHub URL with Netlify URL
+  if (content.includes('https://paskskk47-ops.github.io/agarwal-flour-mill/')) {
+    content = content.replace(/https:\/\/paskskk47-ops\.github\.io\/agarwal-flour-mill\//g, 'https://agarwalflourmill.netlify.app/');
+    console.log(`Replaced Github pages URL with Netlify URL in ${file}`);
+  }
+
+  // Clean up any solid white footer logos
+  const oldWhiteLogo = '<img src="logo.png" alt="Agarawal Flour Mill Logo" style="height: 48px; width: auto; object-fit: contain; filter: brightness(0) invert(1);">';
+  const correctLogo = '<img src="logo.png" alt="Agarawal Flour Mill Logo" style="height: 48px; width: 48px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent-gold);">';
+  if (content.includes(oldWhiteLogo)) {
+    content = content.replace(oldWhiteLogo, correctLogo);
+    console.log(`Updated footer logo to circular brand logo in ${file}`);
   }
   
   fs.writeFileSync(filePath, content, 'utf8');
