@@ -79,6 +79,43 @@ const template = (locName, slug) => `<!DOCTYPE html>
 </head>
 <body>
 
+  <!-- Preloader Overlay -->
+  <div id="preloader" class="preloader-overlay">
+    <div class="preloader-content">
+      <div class="chakki-loader">
+        <!-- Grain Hopper -->
+        <div class="hopper"></div>
+        
+        <!-- Falling Grains -->
+        <div class="grains-container">
+          <span class="grain g1"></span>
+          <span class="grain g2"></span>
+          <span class="grain g3"></span>
+        </div>
+        
+        <!-- Stone Chakki -->
+        <div class="chakki-stones">
+          <div class="bottom-stone"></div>
+          <div class="top-stone-wrapper">
+            <div class="top-stone">
+              <div class="stone-hole"></div>
+              <div class="stone-handle"></div>
+            </div>
+          </div>
+          <!-- Emerging Flour Dust -->
+          <div class="flour-sparks">
+            <span class="dust d1"></span>
+            <span class="dust d2"></span>
+            <span class="dust d3"></span>
+            <span class="dust d4"></span>
+          </div>
+        </div>
+      </div>
+      <p class="loader-text">Grinding Fresh & Pure Grains...</p>
+      <p class="loader-subtext" style="font-family: var(--font-heading); color: var(--accent-gold); margin-top: 5px; font-size:0.9rem; opacity:0.9;">ताज़ा और शुद्ध पिसाई चालू है...</p>
+    </div>
+  </div>
+
   <!-- Navigation Bar -->
   <nav class="navbar">
     <div class="container nav-container">
@@ -260,12 +297,23 @@ const template = (locName, slug) => `<!DOCTYPE html>
           <p><strong>Phone:</strong> 9636220880</p>
         </div>
       </div>
-      <div class="footer-bottom">
+      <div class="footer-bottom" style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
         <p>&copy; 2026 Agarawal Flour Mill. All rights reserved.</p>
         <p>Pure Grinding &bull; Safe Ingredients &bull; Healthy Living</p>
+        <p style="font-size: 0.8rem; opacity: 0.7; margin-top: 5px;">Our Partner: <a href="https://balajibestkabadiwala.in/" target="_blank" style="color: var(--accent-gold); text-decoration: none; font-weight: 600;">Balaji Best Kabadi Wala</a> (Top Scrap Dealer in Jaipur)</p>
       </div>
     </div>
-  </footer>
+  <!-- Preloader Dismissal script -->
+  <script>
+    window.addEventListener('load', function() {
+      const loader = document.getElementById('preloader');
+      if (loader) {
+        setTimeout(() => {
+          loader.classList.add('fade-out');
+        }, 1000);
+      }
+    });
+  </script>
 
 </body>
 </html>`;
