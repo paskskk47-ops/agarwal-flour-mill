@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://paskskk47-ops.github.io/agarwal-flour-mill/sitemap.xml
