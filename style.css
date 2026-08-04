@@ -1392,3 +1392,15 @@ img {
   opacity: 0.85;
 }
 
+.location-link {
+  color: var(--text-dark);
+  text-decoration: none;
+  transition: var(--transition-smooth);
+}
+
+.location-link:hover {
+  color: var(--accent-gold) !important;
+  text-decoration: underline !important;
+}
+
+
