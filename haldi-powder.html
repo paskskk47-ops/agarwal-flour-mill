@@ -7,6 +7,7 @@
   <meta name="description" content="Get vibrant, aromatic, 100% pure Haldi Powder (हल्दी पिसाई) ground from whole dry turmeric bulbs at Shop no. 16, Zone 35, Rajat Path, Mansarovar, Jaipur. Retains curcumin oils. Call 9636220880.">
   <meta name="keywords" content="masala pisai, pure haldi powder, turmeric grinding jaipur, dry haldi bulbs, fresh turmeric, spice mill mansarovar, agarawal flour mill">
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="logo.png">
   
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
@@ -249,6 +250,30 @@
       </div>
     </div>
   </footer>
+
+  <!-- Navigation & Preloader script -->
+  <script>
+    // Mobile menu toggle logic
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    
+    if (menuToggle && navLinks) {
+      menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        menuToggle.classList.toggle('active');
+      });
+    }
+
+    // Preloader Dismissal script
+    window.addEventListener('load', function() {
+      const loader = document.getElementById('preloader');
+      if (loader) {
+        setTimeout(() => {
+          loader.classList.add('fade-out');
+        }, 1000);
+      }
+    });
+  </script>
 
 </body>
 </html>

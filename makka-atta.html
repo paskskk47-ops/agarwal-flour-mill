@@ -7,6 +7,7 @@
   <meta name="description" content="Bring your maize (makka) to Shop no. 16, Zone 35, Rajat Path, Mansarovar, Jaipur and get fine, pure Makki ka Atta (मक्का पिसाई). Perfect for delicious, healthy rotis. Call 9636220880.">
   <meta name="keywords" content="atta chakki near me, makki ka atta, maize grinding jaipur, fresh makka flour, makki ki roti, corn flour chakki, rajat path chakki, agarawal flour mill">
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="logo.png">
   
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
@@ -249,6 +250,30 @@
       </div>
     </div>
   </footer>
+
+  <!-- Navigation & Preloader script -->
+  <script>
+    // Mobile menu toggle logic
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    
+    if (menuToggle && navLinks) {
+      menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        menuToggle.classList.toggle('active');
+      });
+    }
+
+    // Preloader Dismissal script
+    window.addEventListener('load', function() {
+      const loader = document.getElementById('preloader');
+      if (loader) {
+        setTimeout(() => {
+          loader.classList.add('fade-out');
+        }, 1000);
+      }
+    });
+  </script>
 
 </body>
 </html>

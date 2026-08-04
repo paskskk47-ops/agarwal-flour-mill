@@ -14,28 +14,63 @@ const productFiles = [
   'garam-masala.html'
 ];
 
-const oldPreHeader = `  <!-- Pre-header Banner -->
-  <div class="pre-header" style="background-color: var(--primary-brown); color: var(--bg-warm-cream); text-align: center; padding: 6px 10px; font-size: 0.8rem; font-weight: 500; border-bottom: 1px solid rgba(255,255,255,0.1);">
-    <span>For similar websites contact <a href="https://orbyza.com" target="_blank" style="color: var(--accent-gold); text-decoration: none; font-weight: 600;">orbyza.com</a></span>
-  </div>`;
+const faviconHTML = '<link rel="icon" type="image/png" href="logo.png">';
 
-const newPreHeader = `  <!-- Pre-header Banner -->
-  <div class="pre-header" style="background-color: var(--primary-brown); color: var(--bg-warm-cream); text-align: center; padding: 6px 10px; font-size: 0.8rem; font-weight: 500; border-bottom: 1px solid rgba(255,255,255,0.1);">
-    <span>For similar websites contact <a href="https://orbyza.com" target="_blank" style="color: var(--accent-gold); text-decoration: none; font-weight: 600;">orbyza.com</a> or Call/WhatsApp: <a href="tel:7297016879" style="color: var(--accent-gold); text-decoration: none; font-weight: 600;">7297016879</a></span>
-  </div>`;
+const navScriptHTML = `  <!-- Navigation & Preloader script -->
+  <script>
+    // Mobile menu toggle logic
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    
+    if (menuToggle && navLinks) {
+      menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        menuToggle.classList.toggle('active');
+      });
+    }
+
+    // Preloader Dismissal script
+    window.addEventListener('load', function() {
+      const loader = document.getElementById('preloader');
+      if (loader) {
+        setTimeout(() => {
+          loader.classList.add('fade-out');
+        }, 1000);
+      }
+    });
+  </script>`;
 
 productFiles.forEach(file => {
   const filePath = path.join(__dirname, file);
   if (!fs.existsSync(filePath)) return;
   let content = fs.readFileSync(filePath, 'utf8');
   
-  if (content.includes(oldPreHeader)) {
-    content = content.replace(oldPreHeader, newPreHeader);
-    console.log(`Updated pre-header with contact number in ${file}`);
-  } else if (!content.includes('pre-header')) {
-    // If it doesn't have it at all, add the new one before navigation bar
-    content = content.replace('<!-- Navigation Bar -->', newPreHeader + '\n\n  <!-- Navigation Bar -->');
-    console.log(`Added new pre-header with contact number to ${file}`);
+  // Inject favicon in head if not present
+  if (!content.includes('rel="icon"')) {
+    content = content.replace('<link rel="stylesheet" href="style.css">', `<link rel="stylesheet" href="style.css">\n  ${faviconHTML}`);
+    console.log(`Injected favicon into ${file}`);
+  }
+  
+  // Replace old preloader dismissal script or append navigation script
+  if (content.includes('<!-- Preloader Dismissal script -->')) {
+    // If it has old dismissal script, replace it
+    const oldDismissalScript = `  <!-- Preloader Dismissal script -->
+  <script>
+    window.addEventListener('load', function() {
+      const loader = document.getElementById('preloader');
+      if (loader) {
+        setTimeout(() => {
+          loader.classList.add('fade-out');
+        }, 1000);
+      }
+    });
+  </script>`;
+    content = content.replace(oldDismissalScript, navScriptHTML);
+    console.log(`Updated preloader script with navigation controls in ${file}`);
+  } else if (!content.includes('menuToggle')) {
+    // Append script right before </body>
+    content = content.replace('</body>', `${navScriptHTML}\n\n</body>`);
+    console.log(`Appended navigation script to ${file}`);
   }
   
   fs.writeFileSync(filePath, content, 'utf8');

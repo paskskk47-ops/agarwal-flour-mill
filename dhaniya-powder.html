@@ -7,6 +7,7 @@
   <meta name="description" content="Get highly aromatic, fresh Dhaniya Powder (धनिया पिसाई) ground from whole coriander seeds at Shop no. 16, Zone 35, Rajat Path, Mansarovar, Jaipur. Retains volatile oils. Call 9636220880.">
   <meta name="keywords" content="masala pisai, pure dhaniya powder, coriander grinding jaipur, whole coriander seeds, fresh dhaniya, spice mill jaipur, rajat path spice grinding, agarawal flour mill">
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="logo.png">
   
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
@@ -251,6 +252,30 @@
       </div>
     </div>
   </footer>
+
+  <!-- Navigation & Preloader script -->
+  <script>
+    // Mobile menu toggle logic
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    
+    if (menuToggle && navLinks) {
+      menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        menuToggle.classList.toggle('active');
+      });
+    }
+
+    // Preloader Dismissal script
+    window.addEventListener('load', function() {
+      const loader = document.getElementById('preloader');
+      if (loader) {
+        setTimeout(() => {
+          loader.classList.add('fade-out');
+        }, 1000);
+      }
+    });
+  </script>
 
 </body>
 </html>

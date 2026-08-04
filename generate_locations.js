@@ -36,6 +36,7 @@ const template = (locName, slug) => `<!DOCTYPE html>
   <meta name="description" content="Looking for the best Atta Chakki near ${locName}, Mansarovar? Agarawal Flour Mill at Rajat Path offers fresh, hygienic, stone-ground grain and spice grinding services. Call 9636220880.">
   <meta name="keywords" content="atta chakki near me, flour mill ${locName}, atta chakki ${locName}, masala grinding ${locName}, fresh chakki atta, masala pisai, agarawal flour mill jaipur">
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="logo.png">
   
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
@@ -308,8 +309,20 @@ const template = (locName, slug) => `<!DOCTYPE html>
         <p style="font-size: 0.8rem; opacity: 0.7; margin-top: 5px;">Website Designed & Managed by <a href="https://orbyza.com" target="_blank" style="color: var(--accent-gold); text-decoration: none; font-weight: 600;">Orbyza</a></p>
       </div>
     </div>
-  <!-- Preloader Dismissal script -->
+  <!-- Navigation & Preloader script -->
   <script>
+    // Mobile menu toggle logic
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    
+    if (menuToggle && navLinks) {
+      menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        menuToggle.classList.toggle('active');
+      });
+    }
+
+    // Preloader Dismissal script
     window.addEventListener('load', function() {
       const loader = document.getElementById('preloader');
       if (loader) {
