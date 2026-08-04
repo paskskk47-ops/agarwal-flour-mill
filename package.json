@@ -1,0 +1,8 @@
+{
+  "name": "agarawal-flour-mill",
+  "version": "1.0.0",
+  "description": "Local business website for Agarawal Flour Mill",
+  "scripts": {
+    "start": "npx serve -l 3000"
+  }
+}
