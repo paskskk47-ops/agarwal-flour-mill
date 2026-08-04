@@ -36,6 +36,46 @@ const template = (locName, slug) => `<!DOCTYPE html>
   <meta name="description" content="Looking for the best Atta Chakki near ${locName}, Mansarovar? Agarawal Flour Mill at Rajat Path offers fresh, hygienic, stone-ground grain and spice grinding services. Call 9636220880.">
   <meta name="keywords" content="atta chakki near me, flour mill ${locName}, atta chakki ${locName}, masala grinding ${locName}, fresh chakki atta, masala pisai, agarawal flour mill jaipur">
   <link rel="stylesheet" href="style.css">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Atta Chakki & Spice Grinding near ${locName} Mansarovar | Agarawal Flour Mill">
+  <meta property="og:description" content="Looking for the best Atta Chakki near ${locName}, Mansarovar? Agarawal Flour Mill at Rajat Path offers fresh, hygienic, stone-ground grain and spice grinding services. Call 9636220880.">
+  <meta property="og:image" content="https://paskskk47-ops.github.io/agarwal-flour-mill/cover%20pic.png">
+  <meta property="og:url" content="https://paskskk47-ops.github.io/agarwal-flour-mill/${slug}.html">
+
+  <!-- Local Business Schema for SGE/AI & Search Engine snippets -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Agarawal Flour Mill - Grinding Service near ${locName}",
+      "image": [
+        "https://paskskk47-ops.github.io/agarwal-flour-mill/logo.png",
+        "https://paskskk47-ops.github.io/agarwal-flour-mill/cover%20pic.png"
+      ],
+      "description": "Providing fresh stone-ground wheat, bajra, maize, gram, and spice grinding services to residents of ${locName}, Mansarovar, Jaipur.",
+      "telephone": "+919636220880",
+      "url": "https://paskskk47-ops.github.io/agarwal-flour-mill/${slug}.html",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Shop no. 16, Zone 35, Rajat Path, Mansarovar",
+        "addressLocality": "Jaipur",
+        "addressRegion": "Rajasthan",
+        "postalCode": "302020",
+        "addressCountry": "IN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "26.8524",
+        "longitude": "75.7538"
+      },
+      "areaServed": {
+        "@type": "AdministrativeArea",
+        "name": "${locName}"
+      }
+    }
+  </script>
 </head>
 <body>
 
