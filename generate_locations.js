@@ -165,7 +165,14 @@ const template = (locName, slug) => `<!DOCTYPE html>
             Shop no. 16, Zone 35, Rajat Path, Mansarovar, Jaipur<br>
             Open 7 days a week: 8:00 AM — 8:00 PM
           </p>
-          <a href="https://share.google/MFBDdwgdyWeaRZH7N" target="_blank" style="display:inline-block; font-size:0.85rem; color:var(--accent-gold); font-weight:600; margin-top:8px;">Get Directions on Map &rarr;</a>
+          <a href="https://share.google/MFBDdwgdyWeaRZH7N" target="_blank" style="display:inline-block; font-size:0.85rem; color:var(--accent-gold); font-weight:600; margin-top:8px; margin-bottom:12px;">Get Directions on Map &rarr;</a>
+        </div>
+        
+        <div style="border-top: 1px solid var(--border-color); padding-top: 20px;">
+          <h4 style="margin-bottom: 8px; font-size: 0.95rem;">More from Agarawal Flour Mill</h4>
+          <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.4;">
+            Looking for a custom flour mill or spice grinding in Jaipur? Return to the main <a href="index.html" style="color: var(--accent-gold); font-weight: 600; text-decoration: none;">Best Atta Chakki Jaipur</a> homepage to access our custom thickness options, rate chart, and online calculator.
+          </p>
         </div>
       </div>
       
